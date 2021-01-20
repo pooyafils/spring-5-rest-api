@@ -13,6 +13,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.version>5.0.3.RELEASE</spring.version>
+        <mysql.connector.version>5.1.17</mysql.connector.version>
     </properties>
 
     <dependencies>
@@ -32,8 +33,18 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.9.5</version>
     </dependency>
-
-
+        <dependency>
+            <!-- dependency for jpa-->
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+<!--dependency for mysql-->
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
     <dependency>
         <!-- Add Servlet support for
       Spring's AbstractAnnotationConfigDispatcherServletInitializer -->
