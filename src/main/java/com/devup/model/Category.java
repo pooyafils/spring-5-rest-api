@@ -13,7 +13,6 @@ public class Category {
     private String CategoryName;
 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "category")
 @JsonBackReference
-
 private List<Product> products;
 
     public int getId() {
