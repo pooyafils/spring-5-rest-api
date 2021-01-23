@@ -9,13 +9,19 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String name;
-
     @ManyToOne( cascade = CascadeType.ALL)
     @JoinColumn
     private Category category;
     private int price;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private ProductSupplier productSupplier;
+
+   // private int available;
+
+
 
     public int getId() {
         return id;
@@ -49,6 +55,14 @@ public class Product {
         this.price = price;
     }
 
+    public ProductSupplier getProductSupplier() {
+        return productSupplier;
+    }
+
+    public void setProductSupplier(ProductSupplier productSupplier) {
+        this.productSupplier = productSupplier;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -56,6 +70,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", category=" + category +
                 ", price=" + price +
+                ", productSupplier=" + productSupplier +
                 '}';
     }
 }
