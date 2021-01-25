@@ -36,4 +36,10 @@ public ResponseEntity<Product> singleProduct(@PathVariable int id){
 
         return ResponseEntity.ok(productRepository.findById(id));
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> editProduct(@PathVariable int id,@RequestBody Product product){
+      Product  productEdit=productRepository.findById(id);
+     productEdit.setName(product.getName());
+        return ResponseEntity.ok(productRepository.save(productEdit));
+    }
 }
