@@ -5,6 +5,7 @@ import com.devup.repository.CategoryRepository;
 import com.devup.repository.ProductRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +29,8 @@ public class ProductController {
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<Product> postProduct(@RequestBody Product product){
-       return ResponseEntity.ok(productRepository.save(product)) ;
+        productRepository.save(product);
+       return ResponseEntity.ok(product) ;
     }
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -41,5 +43,12 @@ public ResponseEntity<Product> singleProduct(@PathVariable int id){
       Product  productEdit=productRepository.findById(id);
      productEdit.setName(product.getName());
         return ResponseEntity.ok(productRepository.save(productEdit));
+    }
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity deleteProduct(@PathVariable int id){
+        Product product=productRepository.findById(id);
+        productRepository.delete(product);
+        return ResponseEntity.ok("deleted");
     }
 }

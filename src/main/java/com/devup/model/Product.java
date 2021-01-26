@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     @ManyToOne( cascade = CascadeType.ALL)
