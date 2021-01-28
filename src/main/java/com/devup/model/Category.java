@@ -10,7 +10,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String CategoryName;
+    private String name;
 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "category")
 @JsonBackReference
 private List<Product> products;
@@ -23,12 +23,12 @@ private List<Product> products;
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return CategoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Product> getProducts() {

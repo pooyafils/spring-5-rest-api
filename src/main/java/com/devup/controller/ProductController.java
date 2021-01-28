@@ -1,5 +1,6 @@
 package com.devup.controller;
 
+import com.devup.model.Category;
 import com.devup.model.Product;
 import com.devup.repository.CategoryRepository;
 import com.devup.repository.ProductRepository;
@@ -28,7 +29,12 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<Product> postProduct(@RequestBody Product product){
+   public ResponseEntity<Product> postProduct(@RequestBody Product product){
+      //  String name=product.getCategory().getName().toString();
+      ///  System.out.println("======================"+name);
+//        Category category=categoryRepository.findByName(a);
+   //    System.out.println("======================"+name);
+       //    product.setCategory(category);
         productRepository.save(product);
        return ResponseEntity.ok(product) ;
     }
