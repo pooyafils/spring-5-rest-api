@@ -1,21 +1,28 @@
 package com.devup.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
     private String name;
-    @ManyToOne( cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn
     private Category category;
+    @Range(min = 10)
     private int price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn
     private ProductSupplier productSupplier;
 

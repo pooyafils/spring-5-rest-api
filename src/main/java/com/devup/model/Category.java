@@ -3,6 +3,7 @@ package com.devup.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -11,7 +12,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "category")
+@OneToMany(mappedBy = "category")
 @JsonBackReference
 private List<Product> products;
 
@@ -37,5 +38,15 @@ private List<Product> products;
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", products=" + products +
+                '}';
     }
 }

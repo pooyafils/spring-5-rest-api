@@ -12,7 +12,7 @@ public class ProductSupplier {
     private int id;
     private String name;
     @JsonBackReference
-    @OneToMany(mappedBy="productSupplier",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="productSupplier")
     private List<Product> product;
 
     public int getId() {

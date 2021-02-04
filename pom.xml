@@ -71,5 +71,12 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger.version}</version>
         </dependency>
-</dependencies>
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.3.Final</version>
+        </dependency>
+
+    </dependencies>
 </project>

@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/Category")
 public class CategoryController {
 
-/*    CategoryRepository categoryRepository;
+   CategoryRepository categoryRepository;
 
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
@@ -30,6 +30,6 @@ public class CategoryController {
     public ResponseEntity postCategory(@RequestBody Category category){
 
         return ResponseEntity.ok(categoryRepository.save(category));
-    }*/
+    }
 
 }
